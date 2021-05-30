@@ -1,0 +1,51 @@
+
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Main forum page</title>
+		<meta name="description" content="form to add new books">
+		<meta name="author" content="RH">
+		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
+		<script type="module" src="{{host}}/main.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1>Home</h1>
+			{{#if authorised}}
+				<a href="/logout">Logout</a>
+			{{else}}
+				<a href="/login">Login</a>
+			{{/if}}
+		</header>
+		{{#if msg}}
+ 			<aside>
+				<p class="msg">{{msg}}</p>
+			</aside>
+		{{/if}}
+	<main>
+		<p>This is main page. You are not log in</p>
+		{{#if authorised}}
+			<p>
+				<table style="width:50%" border="1px">
+					<tr>
+						<th>Nazwa tematu</th>
+						<th>Miniatura awataru</th>
+						<th>Krótkie podsumowanie</th>
+						<th>Data ostatniego postu na forum</th>
+						<th>Odnośnik</th>
+					</tr>
+					<tr>
+						<td>Testowa nazwa</td>
+						<td>Testowa miniatura</td>
+						<td>Testowe krótkie podsumowanie</td>
+						<td>Testowa data</td>
+						<td>Testowy odnośnik</td>
+					</tr>
+				</table>
+			</p>
+		{{/if}}
+	</main>
+	</body>
+</html>

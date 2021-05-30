@@ -1,0 +1,55 @@
+
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Przeglądanie postu</title>
+		<meta name="description" content="form to add new books">
+		<meta name="author" content="Mark Tyers">
+		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
+		<script type="module" src="{{host}}/main.js"></script>
+	</head>
+	<body>
+		<header>
+		<h1>Nazwa tematu: </h1>
+        <h2>Podsumowanie: </h2>
+        <h3>Miniatura: </h3>
+        <h4>Opis: </h4>
+        <h4>Data: </h4>
+		</header>
+		{{#if msg}}
+ 			<aside>
+				<p class="msg">{{msg}}</p>
+			</aside>
+		{{/if}}
+		<main>
+		<form action="/addtopic" enctype="multipart/form-data" method="post">
+			<p>
+				<label for="topicName">Nazwa tematu</label><br />
+				<input type="text" name="topicName" placeholder="Twoja nazwa tematu" value="{{body.name}}">
+			</p>
+			<p>
+				<label for="topicSummary">Podsumowanie tematu</label><br/>
+				<textarea rows="5" cols="30" name="topicSummary" maxlength="100" placeholder="Wprowadź swoje podsumowanie" value="{{body.summary}}">
+					dad
+				</textarea>
+			</p>
+			<p>
+				<label for="topicDescription">Opis</label><br />
+				<textarea id="topicDescription" name="topicDescription" rows="10" cols="30" value="{{body.description}}">
+					dad
+				</textarea>
+			</p>
+			<p>
+				<label for="topicAvatar">Obraz/awatar</label><br />
+				<input type="file" name="topicAvatar" value="{{body.avatar}}">
+			</p>
+			<p><input type="submit" value="Stwórz"></p>
+		</form>
+
+		<p>Ta strona jest dostępna tylko dla zalogowanych</p>
+		<p><a href="/">Strona główna</a></p>
+		</main>
+	</body>
+</html>
