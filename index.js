@@ -31,4 +31,7 @@ app.use(getHandlebarData)
 app.use(router.routes())
 app.use(router.allowedMethods())
 
+
+app.use(serve('public'));
+
 app.listen(port, async() => console.log(`listening on port ${port}`))

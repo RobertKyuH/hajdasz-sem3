@@ -72,9 +72,8 @@ p, legend {
 }
 
 main {
-	max-width: 800px;
-	margin: auto;
-	margin-top: 2em;
+	width: 100%;
+	margin-top: 1%;
 	padding: 2em;
 	box-sizing: border-box;
 	background-color: lightgray;
@@ -246,7 +245,11 @@ table {
 }
 
 table img {
-	width: 100px;
+	width: 8vw;
+	height: 8vh;
+	position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 tr:nth-child(odd) {

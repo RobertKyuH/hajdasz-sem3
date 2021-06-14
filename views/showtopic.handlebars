@@ -1,0 +1,86 @@
+
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Forum: {{topic.name}}</title>
+		<meta name="description" content="form to add new books">
+		<meta name="author" content="Mark Tyers">
+		<link href="{{hbs.host}}/style.css" type="text/css" rel="stylesheet" />
+		<script type="module" src="{{host}}/main.js"></script>
+        <script src="/example.js"></script>
+        <script src="/markdown.js"></script>
+	</head>
+	<body>
+
+
+		<header>
+		<h1>Forum {{topic.name}}</h1>
+		<a href="/logout">Log Out</a>
+        <a href="/">Main Page</a>
+		</header>
+		{{#if msg}}
+ 			<aside>
+				<p class="msg">{{msg}}</p>
+			</aside>
+		{{/if}}
+		<main>
+
+        <!-- Info about forum -->
+        <h1>You are on forum: {{topic.id}} </h1>
+        <p>Name: {{topic.name}}</p>
+        <p>Summary: {{topic.summary}}</p>
+        <p>Description: {{topic.description}}</p>
+        <p>Created by: {{topic.user_name}}</p>
+        <p>Creation date: {{topic.creation_date}}</p>
+
+        <!-- List current posts -->
+        <table style="width: 100%" border="1px">
+            <tr>
+                <th width="20%">
+                    User name:
+                </th>
+                <th>
+
+                </th>
+            </tr>
+
+            {{#each posts}}
+                <tr>
+                    <td>
+                        {{username}}<br>
+                        Posted: {{creation_date_time}}
+                    </td>
+                    <td>
+                        <div id="preview">
+                            {{message}}
+                        </div>
+                    </td>
+                </tr>
+			{{/each}}
+        </table>
+
+		
+
+        <!-- Add post -->
+
+        {{#if authorised}}
+        <form action="/addpost" enctype="multipart/form-data" method="post">
+            <input type="hidden" name="referrer" value="/showTopic/?topicID={{topic.id}}">
+            <input type="hidden" name="topicID" value="{{topic.id}}">
+			<p>
+				<label for="postMessage">Write your post</label><br />
+				<textarea id="postMessage" name="message" rows="10" cols="30" value="{{body.message}}"></textarea>
+					
+				</textarea>
+			</p>
+			<p><input type="submit" value="Dodaj post"></p>
+		</form>
+        {{else}}
+        <p>You are not supposed to post, because you are not logged in.</p>
+        {{/if}}
+
+		</main>
+	</body>
+</html>

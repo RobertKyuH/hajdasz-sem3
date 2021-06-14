@@ -4,17 +4,13 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Main forum page - logged in</title>
+		<title>SECURE PAGE</title>
 		<meta name="description" content="form to add new books">
 		<meta name="author" content="Mark Tyers">
-		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
+		<link href="{{hbs.host}}/style.css" type="text/css" rel="stylesheet" />
 		<script type="module" src="{{host}}/main.js"></script>
 	</head>
 	<body>
-		<header>
-		<h1>New topic</h1>
-		<a href="/logout">Log out</a>
-		</header>
 		{{#if msg}}
  			<aside>
 				<p class="msg">{{msg}}</p>
@@ -22,12 +18,7 @@
 		{{/if}}
 		<main>
 		{{#if authorised}}
-		<p>Add new topic</p>
-		<a href="/addtopic">Przejdz do dodawania tematu</a>
-
-		<p>This page is avaliable only for logged users</p>
-		<p><a href="/">Home</a></p>
-		{{/if}}
+		<p>PAGE ONLY FOR LOGGED USERS </p>
 		</main>
 	</body>
 </html>

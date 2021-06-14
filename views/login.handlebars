@@ -7,7 +7,7 @@
 		<title>Log In</title>
 		<meta name="description" content="form to add new books">
 		<meta name="author" content="Mark Tyers">
-		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
+		<link href="{{hbs.host}}/style.css" type="text/css" rel="stylesheet" />
 		<script type="module" src="{{host}}/main.js"></script>
 	</head>
 	<body>
@@ -15,9 +15,9 @@
 		<h1>Log In</h1>
 		<a href="/register">Register</a>
 		</header>
-		{{#if msg}}
+		{{#if hbs.msg}}
  			<aside>
-				<p class="msg">{{msg}}</p>
+				<p class="msg">{{hbs.msg}}</p>
 			</aside>
 		{{/if}}
 		<main>
