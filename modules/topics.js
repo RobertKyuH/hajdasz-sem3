@@ -33,7 +33,7 @@ class Topics {
      * 
 	 * @returns {Boolean} returns true if the topic has been added
 	 */
-	// dodanie tematu do bazy danych
+	// add topic to the data base
 	async addTopic(name, summary, description, avatar, username) {
 		Array.from(arguments).forEach( val => {
 			if(val.length === 0) throw new Error('missing field')
@@ -43,10 +43,10 @@ class Topics {
 		if(data.records !== 0) throw new Error(`topic "${name}" already in use`)
 
 
-		// skopiowane pliku na serwer
+		// copy file to server
 		await fs.copy(avatar.path, `public/avatars/${avatar.name}`)
 
-		// data dodania postu
+		// data of added post
 		let current_date = Date.now()
 		let date_obj = new Date(current_date)
 		let date_string = date_obj.getFullYear() + "-" + (date_obj.getMonth()+1) + "-" + date_obj.getDate()
@@ -59,13 +59,13 @@ class Topics {
 
 		let creation_time = hour +":"+min;
 
-		// zapisanie tematu w bazie danych
+		// store topic in the database
 		sql = `INSERT INTO topics(name, summary, description, miniature_path, user_name, creation_date, creation_time) VALUES
 		("${name}", "${summary}", "${description}", "avatars/${avatar.name}", "${username}", "${date_string}", "${creation_time}")`
 		await this.db.run(sql)
 		return true
 	}
-	// pobranie tematów z bazy danych
+	// get topics from the data
 	async getAllTopics(){
 		let sql = `SELECT * FROM topics`
 		const records = await this.db.all(sql)
@@ -73,7 +73,7 @@ class Topics {
 		return records
 	}
 
-	// pobranie wybranego tematu
+	// get topic by ID
 	async getTopicById(id){
 		let sql = `SELECT * FROM topics WHERE id=` + String(id)
 		const record = await this.db.get(sql)

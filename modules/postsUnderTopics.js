@@ -33,10 +33,10 @@ class PostsUnderTopics {
      * 
 	 * @returns {Boolean} returns true if the topic has been added
 	 */
-	// dodanie tematu do bazy danych
+	// add topic to the database
 	async addPost(username, message, topicid) {
 
-		// data dodania postu
+		// add data to post
 		let current_date = Date.now()
 		let date_obj = new Date(current_date)
 
@@ -64,12 +64,12 @@ class PostsUnderTopics {
 
 		console.log(date_time)
 
-		// zapisanie tematu w bazie danych
+		// store topic in the data base
 		let sql = `INSERT INTO PostsUnderTopics(username, message, creation_date_time, TopicID) VALUES ("${username}", "${message}", "${date_time}", ${topicid})`
 		await this.db.run(sql)
 		return true
 	}
-	// pobranie tematów z bazy danych
+	// upload topics from the database
 	async getAllPostsByTopicId(topicid){
 		let sql = `SELECT * FROM PostsUnderTopics WHERE topicId=` + String(topicid)
 		const records = await this.db.all(sql)
