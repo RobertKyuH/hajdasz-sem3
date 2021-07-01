@@ -1,6 +1,7 @@
 
 {
   "preview": {
-        "Live Site": "https://{{domain8080}}/{{index}}"
+        "Live Site": "https://{{domain8080}}/{{index.js}}",
+				"Heroku": "https://{{domain5000}}/{{index.js}}"
   }
 }
