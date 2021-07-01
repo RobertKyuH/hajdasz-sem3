@@ -38,7 +38,7 @@ test('OWN CREATE TOPIC+POST TEST : register, login, add topic and add post', asy
 
         const login = await account.login('user1', 'p455w0rd')
 
-        let avatar = {path: "public/avatars/7-70683_download-ring-of-fire-png-clipart.png"};
+        let avatar = {path: "public/avatars/bike.png"};
         const topic_add_status =await topics.addTopic("TestTopicName", "TestSummary", "TestDescription", avatar, "user1")
         const add_post = await postsUnderTopics.addPost("user1", "test message", 1)
 
