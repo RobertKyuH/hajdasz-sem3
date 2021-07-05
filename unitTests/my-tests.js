@@ -11,9 +11,9 @@ test('OWN REGISTER+LOGIN TEST : register and log in 3 accounts with a valid acco
 	test.plan(1)
 	const account = await new Accounts() // no database specified so runs in-memory
 	try {
-		await account.register('user1', 'p455w0rd', 'user11@gmail.com')
-        await account.register('user2', 'p455w0rd', 'user22@gmail.com')
-        await account.register('user3', 'p455w0rd', 'user33@gmail.com')
+		await account.register('user1', 'p455w0rd', 'robert@interwork.pl')
+        await account.register('user2', 'p455w0rd', 'robert1@interwork.pl')
+        await account.register('user3', 'p455w0rd', 'robert2@interwork.pl')
 
         const loginOne = await account.login('user1', 'p455w0rd')
         const loginTwo = await account.login('user2', 'p455w0rd')
@@ -34,7 +34,7 @@ test('OWN CREATE TOPIC+POST TEST : register, login, add topic and add post', asy
     const topics = await new Topics()
     const postsUnderTopics = await new PostsUnderTopics()
 	try {
-		await account.register('user1', 'p455w0rd', 'user11@gmail.com')
+		await account.register('user1', 'p455w0rd', 'robert@interwork.pl')
 
         const login = await account.login('user1', 'p455w0rd')
 
@@ -57,7 +57,7 @@ test('OWN CREATE TOPICwithout avatar', async test => {
     const topics = await new Topics()
     const postsUnderTopics = await new PostsUnderTopics()
 	try {
-		await account.register('user1', 'p455w0rd', 'user11@gmail.com')
+		await account.register('user1', 'p455w0rd', 'robert@interwork.pl')
 
         const login = await account.login('user1', 'p455w0rd')
 
@@ -79,7 +79,7 @@ test('OWN CREATE TOPIC without any data', async test => {
     const topics = await new Topics()
     const postsUnderTopics = await new PostsUnderTopics()
 	try {
-		await account.register('user1', 'p455w0rd', 'user11@gmail.com')
+		await account.register('user1', 'p455w0rd', 'robert@interwork.pl')
 
         const login = await account.login('user1', 'p455w0rd')
 
